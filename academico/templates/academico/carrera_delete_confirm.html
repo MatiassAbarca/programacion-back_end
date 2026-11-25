@@ -11,6 +11,13 @@
             <div class="card-body">
                 <p>¿Estás seguro de que deseas eliminar la carrera <strong>{{ carrera.codigo }} - {{ carrera.nombre }}</strong>?</p>
                 <p class="text-muted small">Esta acción eliminará el registro permanentemente de la base de datos MySQL.</p>
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item"><strong>Código:</strong> {{ carrera.codigo }}</li>
+                    <li class="list-group-item"><strong>Carrera:</strong> {{ carrera.nombre }}</li>
+                    <li class="list-group-item"><strong>Facultad:</strong> {{ carrera.facultad }}</li>
+                    <li class="list-group-item"><strong>Modalidad:</strong> {{ carrera.modalidad }}</li>
+                    <li class="list-group-item"><strong>Arancel anual:</strong> ${{ carrera.arancel_formateado }}</li>
+                </ul>
                 <form method="post" class="d-flex justify-content-end gap-2">
                     {% csrf_token %}
                     <a href="{% url 'academico:carrera_list' %}" class="btn btn-secondary">Cancelar</a>

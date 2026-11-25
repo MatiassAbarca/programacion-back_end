@@ -7,14 +7,21 @@
     <a href="{% url 'academico:carrera_create' %}" class="btn btn-primary">+ Nueva Carrera</a>
 </div>
 
-<form method="get" class="row g-2 mb-4">
-    <div class="col-md-10">
+<form method="get" class="row g-2 mb-3">
+    <div class="col-md-8">
         <input type="text" name="q" value="{{ query }}" class="form-control" placeholder="Buscar por código, nombre, facultad o modalidad...">
     </div>
     <div class="col-md-2 d-grid">
         <button type="submit" class="btn btn-secondary">Buscar</button>
     </div>
+    <div class="col-md-2 d-grid">
+        <a href="{% url 'academico:carrera_list' %}" class="btn btn-outline-secondary">Limpiar</a>
+    </div>
 </form>
+
+<p class="text-muted small mb-3">
+    Mostrando <strong>{{ carreras|length }}</strong> carrera(s){% if query %} para el filtro "<strong>{{ query }}</strong>"{% endif %}.
+</p>
 
 <div class="card shadow-sm border-0">
     <div class="table-responsive">
