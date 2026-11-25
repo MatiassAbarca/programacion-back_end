@@ -1,0 +1,44 @@
+{% extends "academico/base.html" %}
+{% block title %}Inicio | Gestión Universitaria{% endblock %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm border">
+    <div class="container-fluid py-2">
+        <h1 class="display-6 fw-bold text-primary">Gestión Académica de Carreras</h1>
+        <p class="col-md-8 fs-5 text-muted">
+            Plataforma web desarrollada en Django conectada a MySQL/MariaDB para administrar la oferta académica universitaria.
+        </p>
+        <div class="d-flex gap-2 mt-3">
+            <a href="{% url 'academico:carrera_list' %}" class="btn btn-primary btn-lg">Ver listado de carreras</a>
+            <a href="{% url 'academico:carrera_create' %}" class="btn btn-outline-primary btn-lg">Registrar nueva carrera</a>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h6 class="text-muted text-uppercase">Total Carreras</h6>
+                <h2 class="fw-bold mb-0">{{ total_carreras }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h6 class="text-muted text-uppercase">Carreras Activas</h6>
+                <h2 class="fw-bold text-success mb-0">{{ carreras_activas }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h6 class="text-muted text-uppercase">Cupos Totales</h6>
+                <h2 class="fw-bold text-primary mb-0">{{ total_cupos }}</h2>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
